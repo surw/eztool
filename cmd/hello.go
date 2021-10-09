@@ -8,22 +8,6 @@ import (
 	"time"
 )
 
-func main() {
-	ln, err := net.Listen("tcp", ":8080")
-	if err != nil {
-		panic(err)
-	}
-
-	for {
-		conn, err := ln.Accept()
-		if err != nil {
-			panic(err)
-		}
-
-		go handleRequest(conn)
-	}
-}
-
 var fwCmd = &cobra.Command{
 	Use:   "fw",
 	Short: "Print the version number of Hugo",
